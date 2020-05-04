@@ -1,0 +1,134 @@
+include ./mixins.pug
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Portfolio | main page
+  body
+    .wrapper
+      .welcome
+        section.hero
+          .container.container__hero
+            heder.heder 
+              .heder__logo
+                .logo СД
+              .heder__menu
+                nav.nav
+                  -var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связатся'];
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a(href='#').nav__link=item
+              .heder__socials
+                -var icons = ['insta', 'vk', 'github'];
+                ul.socials__list
+                  each icon in icons
+                    li.socials__item
+                      a(href='#').socials__link
+                        +icon(`${icon}`, 'socials__icon')
+            .hero__content
+              .preview
+                p.preview__desc Личный сайт 
+                p.preview__desc веб-разработчика
+                h1.preview__username Стерлин 
+                h1.preview__username Дмитрий
+            .hero__scroll.scroll__btn
+              a(href='#').scroll__btn-text Скролл
+              +icon('scroll', 'scroll__btn-icon')
+        section.about
+          .container.about__container
+            .about-left
+              .user.about__left-user
+                .user__avatar.avatar
+                  +image("content/user.jpg", "avatar__pic")
+                ul.user__desc
+                  - 
+                    var items = [
+                      ['Проживаю', 'Воронеж'],
+                      ['Возраст', '34'],
+                      ['Родился', '25 февраля 1986'],
+                    ]
+                  each item in items
+                    li.user__desc-item
+                      span.user__key #{item[0]}
+                      span.user__value #{item[1]}
+            .about-right
+              h4.about__prolog Привет, меня зовут
+              h2.about__title Дмитрий Стерлин
+              .about__text
+                p Я занимаюсь разработкой современных сайтов и приложений.
+                p Мне нравится делать интересные и современные проекты.
+              .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftShool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
+      section.skills
+      section.work
+        .container
+          .work__title
+            h2.title Мои работы
+          .work__content
+            .work__content-left
+              .slider
+                .slider__wrap
+                  ul.slider__list
+                    li.slider__item
+                      ul.slider-btn__list
+                        li.slider-btn__item
+                          .slider-btn__wrap
+                            +image("content/work1.jpg", "slider-btn__img")
+                        li.slider-btn__item
+                          .slider-btn__wrap
+                            +image("content/work2.jpg", "slider-btn__img")
+                        li.slider-btn__item
+                          .slider-btn__wrap
+                            +image("content/work3.jpg", "slider-btn__img")
+                        li.slider-btn__item
+                          .slider-btn__wrap
+                            +image("content/work4.jpg", "slider-btn__img")
+            .work__content-right
+              .card
+                ul.card__list
+                  li.card__item
+                    .card__content
+                      -var techno = ['js', 'html', 'css']
+                      ul.card-tecnology__list
+                        each item in techno
+                          li.tecnology__item
+                            .technology__item-btn=item
+                      h3.card-title Сайт школы образования
+                      .card-description  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, accusamus maiores quibusdam officia in ea labore ex quidem.
+                      .card-btn
+                        a.card-btn__link Посмотреть сайт
+      .main
+        section.review
+          .container
+            .review__col
+              h2.review__title.title Что обо мне говорят
+              .review__btn
+                a.review__btn-prev
+                a.review__btn-next
+            .review__slider
+              .review__slider-wrap
+                ul.review__slider-list
+                  li.review__slider-item
+                    .review__content
+                      .review__description
+                        p Этот парень проходил оучение веб-разработке не где-то, а в LoftShool! 4,5 месяца только самых тяжелыхиспытаний и бессоных ночей!
+                      .review__info
+                        .review__ava
+                          .avatar
+                        .reviev__name Ковальчук Дмитрий
+                        .reviev__name Основатель LoftShool
+                    .review__content
+                      .review__description
+                        p Этот парень проходил оучение веб-разработке не где-то, а в LoftShool! 4,5 месяца только самых тяжелыхиспытаний и бессоных ночей!
+                      .review__info
+                        .review__ava
+                          .avatar
+                        .reviev__name Ковальчук Дмитрий
+                        .reviev__name Основатель LoftShool
+        section.forms
+          .container
+            form.form
+
