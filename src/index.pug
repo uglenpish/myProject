@@ -31,12 +31,13 @@ html(lang="en")
                         +icon(`${icon}`, 'socials__icon')
             .hero__content
               .preview
-                p.preview__desc Личный сайт 
-                p.preview__desc веб-разработчика
+                .preview__desc
+                  p.preview__desc-text Личный сайт 
+                  p.preview__desc-text веб-разработчика
                 h1.preview__username Стерлин 
                 h1.preview__username Дмитрий
             .hero__scroll.scroll__btn
-              a(href='#').scroll__btn-text Скролл
+              a(href='#').scroll__btn-text
               +icon('scroll', 'scroll__btn-icon')
         section.about
           .container.about__container
@@ -57,14 +58,19 @@ html(lang="en")
                       span.user__value #{item[1]}
             .about-right
               h4.about__prolog Привет, меня зовут
-              h2.about__title Дмитрий Стерлин
+              h2.about__title.title Дмитрий Стерлин
               .about__text
                 p Я занимаюсь разработкой современных сайтов и приложений.
                 p Мне нравится делать интересные и современные проекты.
               .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftShool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
+        .triangles.triangles--section
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
+            polygon(points="0,0 0,100 1000,100")
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
+            polygon(points="1000,0 1000,100 0,100")
       section.skills(id="skills")
-        .container
-          .scills__decor
+        .container.skills-container
+          .skills__decor
             +image('content/bag.jpg', 'skills__decor-pic')
           .skills__content
             .skills__desc
@@ -83,7 +89,7 @@ html(lang="en")
                     li.skills__row
                       .skills__row-items
                         h3.skills__row-title #{item[0]}
-                        ul.skills_row-list
+                        ul.skills__row-list
                           each skill in item[1]
                             li.skills__row-item
                               .skill
@@ -142,16 +148,20 @@ html(lang="en")
                       .review__info
                         .review__ava
                           .avatar
-                        .reviev__name Ковальчук Дмитрий
-                        .reviev__name Основатель LoftShool
+                            +image('content/user.jpg', 'avatar__img')
+                        .review__data
+                          .review__data-name Ковальчук Дмитрий
+                          .review__data-subtitle Основатель LoftShool
                     .review__content
                       .review__description
                         p Этот парень проходил оучение веб-разработке не где-то, а в LoftShool! 4,5 месяца только самых тяжелыхиспытаний и бессоных ночей!
                       .review__info
                         .review__ava
                           .avatar
-                        .reviev__name Ковальчук Дмитрий
-                        .reviev__name Основатель LoftShool
+                            +image('content/user.jpg', 'avatar__img')
+                        .review__data
+                          .review__data-name Ковальчук Дмитрий
+                          .review__data-subtitle Основатель LoftShool
         section.forms
           .container
             form.form
