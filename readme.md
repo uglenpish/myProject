@@ -7,6 +7,7 @@
 
 ##  Чтобы развернуть проект необходимо:
 ```sh
+
 $ git clone https://github.com/uglenpish/myProject.git
 $ cd ls-advanced-portfolio
 $ yarn
