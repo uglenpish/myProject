@@ -1,5 +1,5 @@
 # Выпускной проект Portfolio школы онлайн-образования LoftSchool
-##  Выполнил: Стогний Максим
+##  Выполнил: Стерлин Дмитрий
 ##  Курс: 28.04.2020 - 05.06.2020
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же 
@@ -7,7 +7,7 @@
 
 ##  Чтобы развернуть проект необходимо:
 ```sh
-$ git clone git@github.com:loftschool/ls-advanced-portfolio.git
+$ git clone https://github.com/uglenpish/myProject.git
 $ cd ls-advanced-portfolio
 $ yarn
 ```
