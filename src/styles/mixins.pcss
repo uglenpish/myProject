@@ -21,3 +21,10 @@
     @content;
   }
 }
+
+@mixin circle($size, $border, $border-color) {
+  border: $border solid $border-color;
+  border-radius: 50%;
+  height: $size;
+  width: $size;
+}
