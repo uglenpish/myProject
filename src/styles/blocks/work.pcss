@@ -1,0 +1,28 @@
+.work{
+	margin-bottom: 160px;
+}
+
+.work__slider{
+	display: flex;
+}
+
+.work__slider-buttons{
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+.work__slider-wrap{
+	position: relative;
+	&:before {
+    content: '4';
+    position: absolute;
+    color: #e6e6e6;
+    top: 40%;
+    transform: translateY(-50%);
+    line-height: 1;
+    left: 93%;
+    font-size: 400px;
+    font-weight: 800;
+  }
+}

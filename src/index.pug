@@ -62,44 +62,68 @@ html(lang="en")
                 p Я занимаюсь разработкой современных сайтов и приложений.
                 p Мне нравится делать интересные и современные проекты.
               .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftShool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
-      section.skills
+      section.skills(id="skills")
+        .container
+          .scills__decor
+            +image('content/bag.jpg', 'skills__decor-pic')
+          .skills__content
+            .skills__desc
+              h2.skills__desc-title Чем я могу быть полезен вам
+              .skills__desc-text
+                p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .skills__values
+              .skills__values-container
+                ul.skills__list
+                  - 
+                    var skills = [
+                      ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery, Vue.js']],
+                      ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
+                    ]
+                  each item in skills 
+                    li.skills__row
+                      .skills__row-items
+                        h3.skills__row-title #{item[0]}
+                        ul.skills_row-list
+                          each skill in item[1]
+                            li.skills__row-item
+                              .skill
+                                svg(viewBox="0 0 100 100").skill__shape
+                                  circle(r="40" cx="50" cy="50").skill__circle.skill__circle--under
+                                  circle(r="40" cx="50" cy="50" stroke="url(#gradient)").skill__circle.skill__circle--above
+                                    .skill__title #{skill}
+                  svg(style="width: 0;height: 0;")
+                    lineargradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                      stop(offset="0%" stop-color="#9300e8")
+                      stop(offset="100%" stop-color="#4a00ed")
       section.work
         .container
-          .work__title
-            h2.title Мои работы
+          h2.title.work__title Мои работы
           .work__content
-            .work__content-left
+            .work__slider
               .slider
-                .slider__wrap
+                .slider__wrap.work__slider-wrap
                   ul.slider__list
-                    li.slider__item
-                      ul.slider-btn__list
-                        li.slider-btn__item
-                          .slider-btn__wrap
-                            +image("content/work1.jpg", "slider-btn__img")
-                        li.slider-btn__item
-                          .slider-btn__wrap
-                            +image("content/work2.jpg", "slider-btn__img")
-                        li.slider-btn__item
-                          .slider-btn__wrap
-                            +image("content/work3.jpg", "slider-btn__img")
-                        li.slider-btn__item
-                          .slider-btn__wrap
-                            +image("content/work4.jpg", "slider-btn__img")
-            .work__content-right
-              .card
-                ul.card__list
-                  li.card__item
-                    .card__content
-                      -var techno = ['js', 'html', 'css']
-                      ul.card-tecnology__list
-                        each item in techno
-                          li.tecnology__item
-                            .technology__item-btn=item
-                      h3.card-title Сайт школы образования
-                      .card-description  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, accusamus maiores quibusdam officia in ea labore ex quidem.
-                      .card-btn
-                        a.card-btn__link Посмотреть сайт
+                    - var previews = ['work1', 'work2', 'work3', 'work4']
+                    each preview in previews
+                      li.slider__item(class = preview == 1 ? 'active' : '')
+                        button(type='button').slider__btn
+                          +image(`content/work/${preview}.jpg`, "slider__btn-img")
+                  .work__slider-buttons.slider__arrow
+                    button(type="button").slider__arrow-btn.slider__arrow-btn--prev
+                      +icon('arrow-down', 'slider__arrow-icon')
+                    button(type="button").slider__arrow-btn.slider__arrow-btn--next
+                      +icon('arrow-down', 'slider__arrow-icon')
+              .slider__card
+                .card
+                  ul.card__list
+                    -var techno = ['js', 'html', 'css']
+                    each item in techno
+                      li.card__item
+                        .card__item-tag=item
+                  h3.card__title Сайт школы образования
+                  .card__description Этот парень проходил обучение веб-разработке не где-то, а в LoftShool! 2 месяца только самых тяжелых испытаний и бессоных ночей!
+                  .card__btn
+                    a.card__btn-link(href='#') Посмотреть сайт
       .main
         section.review
           .container
