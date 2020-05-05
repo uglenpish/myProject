@@ -131,6 +131,11 @@ html(lang="en")
                   .card__btn
                     a.card__btn-link(href='#') Посмотреть сайт
       .main
+        .triangles.triangles--rotate
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
+            polygon(points="1000,0 1000,100 0,100")
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
+            polygon(points="0,0 0,100 1000,100")
         section.review
           .container
             .review__col
