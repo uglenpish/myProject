@@ -111,7 +111,7 @@ html(lang="en")
                   ul.slider__list
                     - var previews = ['work1', 'work2', 'work3', 'work4']
                     each preview in previews
-                      li.slider__item(class = preview == 1 ? 'active' : '')
+                      li.slider__item(class = preview == 'work1' ? 'active' : '')
                         button(type='button').slider__btn
                           +image(`content/work/${preview}.jpg`, "slider__btn-img")
                   .work__slider-buttons.slider__arrow
