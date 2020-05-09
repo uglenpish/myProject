@@ -73,14 +73,14 @@
       }
    }
 
-   &__social {
+   &__socials {
       margin-top: 15px;
 
-      .social{
+      /* .social__list{
          display: flex;
-      }
+      } */
 
-      .social__item {
+      .socials__item {
          margin-right: 15px;
 
          &:last-child {
@@ -88,8 +88,8 @@
          }
       }
 
-      .social__link {
-         @include circle(40px, 1px, 'initial');
+      .socials__link {
+         @include circle(50px, 1px, 'initial');
          position: relative;
          display: block;
 
@@ -98,7 +98,9 @@
          }
       }
 
-      .social__svg {
+      .socials__icon {
+         width: 30px !important;
+         height: 30px !important;
          position: absolute;
          top: 50%;
          left: 50%;

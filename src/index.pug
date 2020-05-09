@@ -37,7 +37,7 @@ html(lang="en")
                 h1.preview__username Стерлин 
                 h1.preview__username Дмитрий
             .hero__scroll.scroll__btn
-              a(href='#').scroll__btn-text
+              a(href='#').scroll__btn-text Скролл
               +icon('scroll', 'scroll__btn-icon')
         section.about
           .container.about__container
@@ -163,32 +163,30 @@ html(lang="en")
         section.contacts(id="contacts")
           .container
             h2.contacts__title.title Связаться со мной
-            .contacts__form
-              form
-                .form__container
-                  .form__row
-                    label.form__block
-                      .form__block-label Введите ваше имя
-                      .form__block-wrap
-                        +icon('user','form__block-icon')
-                        .form__block-field
-                          input(placeholder="Иванов Иван").form__block-input
-                    label.form__block
-                      .form__block-label Введите ваше email
-                      .form__block-wrap
-                        +icon('envelope','form__block-icon')
-                        .form__block-field
-                          input(placeholder="example@mail.com").form__block-input
-                  .form__row.form__row--more-margin
-                    label.form__block
-                      .form__block-label Сообщение к письму
-                      .form__block-wrap.form__block-wrap--align-top
-                        +icon('message','form__block-icon')
-                        .form__block-field
-                          textarea(placeholder="Требуется ваша помощь в создании сайта. \nИнтересуют сроки и цена вопроса" rows="3").form__block-input.form__block-textarea
-                  .form__row
-                    .form__buttons
-                      button(type="submit").custom-btn Отправить
+            form.form
+              .form__row
+                label.form__block
+                  .form__block-label Введите ваше имя
+                  .form__block-wrap
+                    +icon('user','form__block-icon')
+                    .form__block-field
+                      input(placeholder="Иванов Иван").form__block-input
+                label.form__block
+                  .form__block-label Введите ваше email
+                  .form__block-wrap
+                    +icon('envelope','form__block-icon')
+                    .form__block-field
+                      input(placeholder="example@mail.com").form__block-input
+              .form__row.form__row--more-margin
+                label.form__block
+                  .form__block-label Сообщение к письму
+                  .form__block-wrap.form__block-wrap--align-top
+                    +icon('message','form__block-icon')
+                    .form__block-field
+                      textarea(placeholder="Требуется ваша помощь в создании сайта. \nИнтересуют сроки и цена вопроса" rows="3").form__block-input.form__block-textarea
+              .form__row
+                .form__buttons
+                  button(type="submit").custom-btn Отправить
       footer.footer
         .container.footer__container
           .footer__column
@@ -212,12 +210,12 @@ html(lang="en")
             .footer__row
               .footer__column.footer__column_flex-col
                 .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-                  .footer__social                
-                    ul.social
+                  .footer__socials                
+                    ul.socials__list
                       each item in icons
-                        li.social__item
-                          a.social__link(href='#')
-                            +icon(item, "social__svg")
+                        li.socials__item
+                          a.socials__link(href='#')
+                            +icon(item, "socials__icon")
               .footer__column.footer__column_flex-col
                 .footer__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                 .footer__text-sig Martin Galding
