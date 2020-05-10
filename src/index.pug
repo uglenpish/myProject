@@ -10,6 +10,7 @@ html(lang="en")
   body
     .wrapper
       .welcome
+        include template/components/paralax-mount
         section.hero
           .container.container__hero
             heder.heder 
@@ -34,8 +35,9 @@ html(lang="en")
                 .preview__desc
                   p.preview__desc-text Личный сайт 
                   p.preview__desc-text веб-разработчика
-                h1.preview__username Стерлин 
-                h1.preview__username Дмитрий
+                .preview__username
+                  h1.preview__username-title Стерлин 
+                  h1.preview__username-title Дмитрий
             .hero__scroll.scroll__btn
               a(href='#').scroll__btn-text Скролл
               +icon('scroll', 'scroll__btn-icon')
@@ -77,30 +79,7 @@ html(lang="en")
               h2.skills__desc-title Чем я могу быть полезен вам
               .skills__desc-text
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-            .skills__values
-              .skills__values-container
-                ul.skills__list
-                  - 
-                    var skills = [
-                      ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery, Vue.js']],
-                      ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
-                    ]
-                  each item in skills 
-                    li.skills__row
-                      .skills__row-items
-                        h3.skills__row-title #{item[0]}
-                        ul.skills__row-list
-                          each skill in item[1]
-                            li.skills__row-item
-                              .skill
-                                svg(viewBox="0 0 100 100").skill__shape
-                                  circle(r="40" cx="50" cy="50").skill__circle.skill__circle--under
-                                  circle(r="40" cx="50" cy="50" stroke="url(#gradient)").skill__circle.skill__circle--above
-                                    .skill__title #{skill}
-                  svg(style="width: 0;height: 0;")
-                    lineargradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                      stop(offset="0%" stop-color="#9300e8")
-                      stop(offset="100%" stop-color="#4a00ed")
+            #skills__component
       section.work
         .container
           h2.title.work__title Мои работы
@@ -136,9 +115,10 @@ html(lang="en")
             polygon(points="1000,0 1000,100 0,100")
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
             polygon(points="0,0 0,100 1000,100")
+        include template/components/parallax-budda
         section.review
           .container
-            .review__col
+            .review__row
               h2.review__title.title Что обо мне говорят
               .review__btn
                 button(type="button").slider__arrow-btn.slider__arrow-btn--prev
@@ -208,7 +188,7 @@ html(lang="en")
                       li.nav__item
                         a.nav__link(href='#') #{item}
             .footer__row
-              .footer__column.footer__column_flex-col
+              .footer__column
                 .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
                   .footer__socials                
                     ul.socials__list
@@ -216,6 +196,8 @@ html(lang="en")
                         li.socials__item
                           a.socials__link(href='#')
                             +icon(item, "socials__icon")
-              .footer__column.footer__column_flex-col
+              .footer__column.footer__column--modify 
                 .footer__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                 .footer__text-sig Martin Galding
+
+  include template/vigets

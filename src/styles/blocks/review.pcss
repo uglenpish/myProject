@@ -3,7 +3,7 @@
 	padding-top: 200px;
 }
 
-.review__col{
+.review__row{
 	display: flex;
 	margin-bottom: 100px;
 }
@@ -19,12 +19,20 @@
 		width: 64%;
   	display: flex;
   	justify-content: space-between;
+
+  	@include desktop{
+  		width: 83%;
+  	}
 	}
 }
 
 .review__slider-item {
   width: 50%;
   margin-right: 85px;
+
+  @include desktop{
+  	margin-right: 35px;
+  }
 
   &:last-child{
   	margin-right: 0;

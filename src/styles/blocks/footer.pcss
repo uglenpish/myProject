@@ -11,6 +11,10 @@
       display: flex;
       flex: 1;
 
+      &:last-child{
+         padding-right: 0;
+      }
+
       @include desktop {
          flex-direction: column;
          flex: 0.6;
@@ -28,7 +32,7 @@
       justify-content: space-between;
 
       @include desktop {
-         flex-direction: column;
+         /* flex-direction: column; */
       }
    }
 
@@ -38,6 +42,7 @@
       white-space: nowrap;
       font-weight: 500;
       margin-right: 5%;
+      margin-bottom: 15px;
    }
 
    &__title {
@@ -49,6 +54,8 @@
       font-size: 20px;
       display: flex;
       flex-direction: column;
+      color: #FFF;
+      margin-bottom: 15px;
    }
 
    &__title-link {
@@ -70,6 +77,9 @@
       }
       .nav__item {
          margin-right: 55px;
+      }
+      .nav__link{
+         color: inherit !important;
       }
    }
 
@@ -107,4 +117,8 @@
          transform: translate(-50%, -50%);
       }
    }   
+}
+
+.footer__column--modify {
+   flex-direction: column;
 }
