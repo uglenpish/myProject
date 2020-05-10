@@ -1,11 +1,11 @@
 let parallax = (function () {
 	
-	let pt1 = document.querySelector('.parallax-mount__layer--1');
-			pt2 = document.querySelector('.parallax-mount__layer--2');
-			pt3 = document.querySelector('.parallax-mount__layer--3');
-			pt4 = document.querySelector('.parallax-mount__layer--4');
-			pt5 = document.querySelector('.parallax-mount__layer--5');
-			pt6 = document.querySelector('.parallax-mount__layer--6');
+	let pt1 = document.querySelector('.parallax-mount__layer--1'),
+			pt2 = document.querySelector('.parallax-mount__layer--2'),
+			pt3 = document.querySelector('.parallax-mount__layer--3'),
+			pt4 = document.querySelector('.parallax-mount__layer--4'),
+			pt5 = document.querySelector('.parallax-mount__layer--5'),
+			pt6 = document.querySelector('.parallax-mount__layer--6'),
 			pt7 = document.querySelector('.parallax-mount__layer--7');
 
 	return {
@@ -20,12 +20,12 @@ let parallax = (function () {
 		},
 
 		init: function (wScroll) {
-			let welcomeOffset = getOffsets('welcome').top;
+			let welcomeOffset = getOffsets('welcome').bottom;
 
 			if (welcomeOffset>0){
-				this.move(pt1, wScroll, 400, 'y' );
-				this.move(pt2, wScroll, 200, 'y' );
-				this.move(pt3, wScroll, 100, 'y' );
+				this.move(pt1, wScroll, 350, 'y' );
+				this.move(pt2, wScroll, 250, 'y' );
+				this.move(pt3, wScroll, 150, 'y' );
 				this.move(pt4, wScroll, 60, 'y' );
 				this.move(pt5, wScroll, 250, 'y' );
 				this.move(pt6, wScroll, 250, 'y' );
