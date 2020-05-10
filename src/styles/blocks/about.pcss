@@ -18,6 +18,10 @@
 	justify-content: space-between;
 	margin-left: 10%;
 
+	@include tablets{
+		width: 55%;
+	}
+
 	.about__prolog{
 		margin-bottom: 30px;
 		font-weight: 600;
@@ -30,6 +34,11 @@
 	.about__text{
 		line-height: 30px;
 		font-weight: 600;
+
+		@include tablets{
+			margin-bottom: 30px;
+			line-height: 1;
+		}
 	}
 
 	.about__ps{
@@ -37,6 +46,10 @@
 		font-weight: 400;
 		font-style: italic;
 		margin-top: auto;
+
+		@include tablets{
+			margin-top: 0;
+		}
 
 		&:before{
 			content: "*";

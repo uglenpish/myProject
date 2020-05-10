@@ -9,6 +9,10 @@
 		align-items: center;
 	}
 
+	@include tablets{
+		flex-direction: column;
+	}
+
 	.preview__desc{
 		margin-bottom: 35px;
 		text-align: center;
@@ -16,6 +20,11 @@
 		@include desktop{
 		  margin-bottom: 0;
 		  margin-right: 55px;
+		}
+
+		@include tablets{
+			margin-right: 0;
+			margin-bottom: 20px;
 		}
 
 		.preview__desc-text {

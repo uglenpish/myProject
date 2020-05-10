@@ -3,4 +3,23 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px 0;
+
+	.heder__menu{
+		@include tablets{
+			display: none;
+		}
+	}
+}
+
+.heder__socials{
+	display: flex;
+}
+
+.header__gam-menu{
+	display: none;
+
+	@include tablets{
+		display: flex;
+		align-items: center;
+	}
 }
