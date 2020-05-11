@@ -5,8 +5,7 @@ let parallax = (function () {
 			pt3 = document.querySelector('.parallax-mount__layer--3'),
 			pt4 = document.querySelector('.parallax-mount__layer--4'),
 			pt5 = document.querySelector('.parallax-mount__layer--5'),
-			pt6 = document.querySelector('.parallax-mount__layer--6'),
-			pt7 = document.querySelector('.parallax-mount__layer--7');
+			pt6 = document.querySelector('.parallax-mount__layer--6');
 
 	return {
 		move: function(block, windowScroll, stafeAmount, axis){
@@ -29,7 +28,6 @@ let parallax = (function () {
 				this.move(pt4, wScroll, 60, 'y' );
 				this.move(pt5, wScroll, 250, 'y' );
 				this.move(pt6, wScroll, 250, 'y' );
-				this.move(pt7, wScroll, 300, 'y' );
 			}
 		}
 	}

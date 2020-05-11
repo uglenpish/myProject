@@ -8,72 +8,18 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
   body
+    include template/vigets
     .wrapper
       .welcome
         include template/components/paralax-mount
-        section.hero
-          .container.container__hero
-            heder.heder 
-              .heder__logo
-                .logo СД
-              .heder__menu
-                nav.nav
-                  -var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связатся'];
-                  ul.nav__list
-                    each item in menu
-                      li.nav__item
-                        a(href='#').nav__link=item
-              .heder__socials
-                -var icons = ['insta', 'vk', 'github'];
-                ul.socials__list
-                  each icon in icons
-                    li.socials__item
-                      a(href='#').socials__link
-                        +icon(`${icon}`, 'socials__icon')
-                .header__gam-menu
-                  button(type="button").nav__btn
-                    +icon('menu', 'nav__icon')
-            .hero__content
-              .preview
-                .preview__desc
-                  p.preview__desc-text Личный сайт 
-                  p.preview__desc-text веб-разработчика
-                .preview__username
-                  h1.preview__username-title Стерлин 
-                  h1.preview__username-title Дмитрий
-            .hero__scroll.scroll__btn
-              a(href='#').scroll__btn-text Скролл
-              +icon('scroll', 'scroll__btn-icon')
-        section.about
-          .container.about__container
-            .about-left
-              .user.about__left-user
-                .user__avatar.avatar
-                  +image("content/user.jpg", "avatar__pic")
-                ul.user__desc
-                  - 
-                    var items = [
-                      ['Проживаю', 'Воронеж'],
-                      ['Возраст', '34'],
-                      ['Родился', '25 февраля 1986'],
-                    ]
-                  each item in items
-                    li.user__desc-item
-                      span.user__key #{item[0]}
-                      span.user__value #{item[1]}
-            .about-right
-              h4.about__prolog Привет, меня зовут
-              h2.about__title.title Дмитрий Стерлин
-              .about__text
-                p Я занимаюсь разработкой современных сайтов и приложений.
-                p Мне нравится делать интересные и современные проекты.
-              .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftShool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
-      section.skills(id="skills")
+        include template/components/hero
+        include template/components/about
         .triangles.triangles--section
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
             polygon(points="0,0 0,100 1000,100")
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
             polygon(points="1000,0 1000,100 0,100")
+      section.skills
         .container.skills-container
           .skills__decor
             +image('content/bag.jpg', 'skills__decor-pic')
@@ -170,37 +116,7 @@ html(lang="en")
               .form__row
                 .form__buttons
                   button(type="submit").custom-btn Отправить
-      footer.footer
-        .container.footer__container
-          .footer__column
-            .footer__copyright © 2020
-            .footer__title
-              h1.footer__title-by-line
-                span Стерлин
-                span Дмитрий
-              a.footer__title-link(href='#')
-                | Личный сайт
-                br
-                | веб-разработчика
-          .footer__column.footer__column_flex-col
-            .footer__nav
-              nav.nav
-                - var items = ["Главаная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                  ul.nav__list
-                    each item in items                
-                      li.nav__item
-                        a.nav__link(href='#') #{item}
-            .footer__row
-              .footer__column
-                .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-                  .footer__socials                
-                    ul.socials__list
-                      each item in icons
-                        li.socials__item
-                          a.socials__link(href='#')
-                            +icon(item, "socials__icon")
-              .footer__column.footer__column--modify 
-                .footer__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-                .footer__text-sig Martin Galding
+      include template/components/footer
+      
 
-  include template/vigets
+  

@@ -1,0 +1,33 @@
+section.hero
+  .container.container__hero
+    heder.heder 
+      .heder__logo
+        .logo СД
+      .heder__menu
+        nav.nav
+          -var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связатся'];
+          ul.nav__list
+            each item in menu
+              li.nav__item
+                a(href='#').nav__link=item
+      .heder__socials
+        -var icons = ['insta', 'vk', 'github'];
+          ul.socials__list
+            each icon in icons
+              li.socials__item
+                a(href='#').socials__link
+                  +icon(`${icon}`, 'socials__icon')
+          .header__gam-menu
+            button(type="button").nav__btn
+              +icon('menu', 'nav__icon')
+    .hero__content
+      .preview
+        .preview__desc
+          p.preview__desc-text Личный сайт 
+          p.preview__desc-text веб-разработчика
+                .preview__username
+          h1.preview__username-title Стерлин 
+          h1.preview__username-title Дмитрий
+    .hero__scroll.scroll__btn
+      a(href='#').scroll__btn-text Скролл
+      +icon('scroll', 'scroll__btn')

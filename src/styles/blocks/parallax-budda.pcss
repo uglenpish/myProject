@@ -1,0 +1,50 @@
+.parallax-budda{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	z-index: -1;
+
+	&__layer{
+		min-width: 100%;
+		min-height: 100%;
+		background-position: 50% 50%;
+		background-size: cover;
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform: translateY(0) translateZ(0);
+	}
+
+		&__layer--1{
+			background-image: url('~images/parallax/buddha/background.png');
+			z-index: 1;
+		}
+
+		&__layer--2{
+			background-image: url('~images/parallax/buddha/mount.png');
+			z-index: 2;
+		}
+
+		&__layer--3{
+			background-image: url('~images/parallax/buddha/Budda.png');
+			z-index: 3;
+		}
+
+		&__layer--4{
+			background-image: url('~images/parallax/buddha/cloud_054.png');
+			z-index: 4;
+		}
+
+		&__layer--5{
+			background-image: url('~images/parallax/buddha/cloud_4.png');
+			z-index: 5;
+		}
+
+		&__layer--6{
+			background-image: url('~images/parallax/buddha/sky.png');
+			z-index: 6;
+		}
+
+}
