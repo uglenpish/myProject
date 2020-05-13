@@ -1,5 +1,5 @@
-const parallax = document.querySelector('.parallax-budda');
-const layers = parallax.children;
+const parall = document.querySelector('.parallax-budda');
+const layers = parall.children;
 
 function moveLayersOnScroll(wScroll) {
 
@@ -16,5 +16,4 @@ function moveLayersOnScroll(wScroll) {
 window.addEventListener("scroll", event => {
    const wScroll = window.pageYOffset;
    moveLayersOnScroll(wScroll)
-   
-})
+});

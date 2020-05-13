@@ -3,6 +3,27 @@ import Flickity from 'vue-flickity';
 
 const row = {
 	template: "#reviews-row",
+	methods: {
+		next() {
+		  this.$refs.flickity.next();
+		  this.checkActiv()
+		},
+		previous() {
+		  this.$refs.flickity.previous();
+		  this.checkActiv()
+		},
+	
+		checkActiv() {
+			if (this.$refs.flickity.selectedIndex() == 0) {
+				this.$el.querySelector('.slider__arrow-btn--prev').disabled = true;
+			} else if (this.$refs.flickity.selectedIndex() == this.$refs.flickity.slides().length - 1) {
+				this.$el.querySelector('.slider__arrow-btn--next').disabled = true;
+			} else {
+				this.$el.querySelector('.slider__arrow-btn--prev').disabled = false;
+				this.$el.querySelector('.slider__arrow-btn--next').disabled = false;
+			}
+		}
+	}
 };
 
 const slide = {
@@ -33,26 +54,4 @@ new Vue({
 	el: "#reviews-component",
 	template: "#reviews-content",
 	components: {row, sliders},
-
-	methods: {
-		next() {
-		  this.$refs.flickity.next();
-		  this.checkActiv()
-		},
-		previous() {
-		  this.$refs.flickity.previous();
-		  this.checkActiv()
-		},
-	
-		checkActiv() {
-			if (this.$refs.flickity.selectedIndex() == 0) {
-				this.$el.querySelector('.slider__arrow-btn--prev').disabled = true;
-			} else if (this.$refs.flickity.selectedIndex() == this.$refs.flickity.slides().length - 1) {
-				this.$el.querySelector('.slider__arrow-btn--next').disabled = true;
-			} else {
-				this.$el.querySelector('.slider__arrow-btn--prev').disabled = false;
-				this.$el.querySelector('.slider__arrow-btn--next').disabled = false;
-			}
-		}
-	},
 });
