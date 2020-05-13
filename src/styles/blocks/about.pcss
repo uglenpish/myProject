@@ -3,12 +3,20 @@
 }
 .about__container {
   display: flex;
-  
+
+  @include phones{
+		flex-direction: column;
+	}
 }
 
 .about-left {
   width: 35%;
   min-width: 200px;
+
+  @include phones{
+		width: 100%;
+		margin-bottom: 50px;
+	}
 }
 
 .about-right{
@@ -20,6 +28,12 @@
 
 	@include tablets{
 		width: 55%;
+	}
+
+	@include phones{
+		width: 100%;
+		text-align: left;
+		margin-left: 0;
 	}
 
 	.about__prolog{
@@ -37,7 +51,7 @@
 
 		@include tablets{
 			margin-bottom: 30px;
-			line-height: 1;
+			
 		}
 	}
 

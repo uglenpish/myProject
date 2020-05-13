@@ -1,50 +1,55 @@
-.parallax-budda{
-	width: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	z-index: -1;
+.parallax-buddha {
+   position: relative;
+   overflow: hidden;
+   min-height: 1400px;
+}
 
-	&__layer{
-		min-width: 100%;
-		min-height: 100%;
-		background-position: 50% 50%;
-		background-size: cover;
-		position: absolute;
-		left: 0;
-		top: 0;
-		transform: translateY(0) translateZ(0);
-	}
+.parallax__image {
+   position: absolute;
+}
 
-		&__layer--1{
-			background-image: url('~images/parallax/buddha/background.png');
-			z-index: 1;
-		}
-
-		&__layer--2{
-			background-image: url('~images/parallax/buddha/mount.png');
-			z-index: 2;
-		}
-
-		&__layer--3{
-			background-image: url('~images/parallax/buddha/Budda.png');
-			z-index: 3;
-		}
-
-		&__layer--4{
-			background-image: url('~images/parallax/buddha/cloud_054.png');
-			z-index: 4;
-		}
-
-		&__layer--5{
-			background-image: url('~images/parallax/buddha/cloud_4.png');
-			z-index: 5;
-		}
-
-		&__layer--6{
-			background-image: url('~images/parallax/buddha/sky.png');
-			z-index: 6;
-		}
-
+.parallax__layer {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+.parallax__bg {
+   position: absolute;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+}
+.parallax__mount {
+   position: absolute;
+   object-fit: cover;
+   height: 100%;
+   width: 100%;
+   bottom: -30%;
+}
+.parallax__buddha {
+   position: absolute;
+   margin-left: 3%;
+   min-width: 700px;
+   left: 50%;
+   top: 600px;
+}
+.parallax__cloud {
+   position: absolute;
+   min-width: 1500px;
+   bottom: 0;
+   left: 0;
+}
+.parallax__cloudmid {
+   position: absolute;
+   min-width: 1500px;
+   bottom: 0px;
+   right: 0;
+}
+.parallax__cloudback {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   min-width: 1500px;
 }

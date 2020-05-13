@@ -1,5 +1,17 @@
 .card{
 	z-index: 5;
+  text-align: center;
+
+  @include tablets{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+
+  @include phones{
+    align-items: start;
+    text-align: left;
+  }
 
 	&__list{
 		display: flex;

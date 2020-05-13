@@ -5,11 +5,23 @@
 
    &__container {
       display: flex;
+
+      @include phones{
+         flex-direction: column;
+      }
    }
    &__column {
       padding-right: 20px;
       display: flex;
       flex: 1;
+
+      @include phones{
+         margin-bottom: 45px;
+
+         &:last-child{
+            margin-bottom: 0;
+         }
+      }
 
       &:last-child{
          padding-right: 0;
@@ -23,6 +35,10 @@
    &__column_flex-col {
       flex-direction: column;
       flex: 2.5;
+
+      @include phones{
+         flex-direction: column;
+      }
    }
 
    &__row {
@@ -31,8 +47,8 @@
       display: flex;
       justify-content: space-between;
 
-      @include desktop {
-         /* flex-direction: column; */
+      @include tablets {
+         flex-direction: column;
       }
    }
 
@@ -74,9 +90,15 @@
 
       .nav__list {
          justify-content: flex-start;
+         flex-wrap: wrap;
       }
       .nav__item {
          margin-right: 55px;
+
+        @include phones{
+            margin-bottom: 25px;
+         }
+      
       }
       .nav__link{
          color: inherit !important;
@@ -85,10 +107,6 @@
 
    &__socials {
       margin-top: 15px;
-
-      /* .social__list{
-         display: flex;
-      } */
 
       .socials__item {
          margin-right: 15px;
@@ -121,4 +139,11 @@
 
 .footer__column--modify {
    flex-direction: column;
+}
+
+.footer__socials>.socials__list{
+         
+    @include phones{
+      display: flex;
+   }
 }

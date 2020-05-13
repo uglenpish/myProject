@@ -4,9 +4,13 @@
   justify-content: center;
   align-items: flex-end;
 
+  @include phones{
+    align-items: center;
+  }
+
   &__avatar{
   	margin-bottom: 70px;
-  }
+  }  
 
   &__desc{
    @include tablets{
@@ -16,11 +20,14 @@
 
   &__desc-item{
   	display: flex;
-    width: 100%; 
+    width: 100%;
   	
     .user__key{
 			width: 120px;
-
+      
+      @include phones{
+        width: 50%;
+      } 
   	}
 
   	.user__value{

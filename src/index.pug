@@ -29,35 +29,7 @@ html(lang="en")
               .skills__desc-text
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             #skills__component
-      section.work
-        .container
-          h2.title.work__title Мои работы
-          .work__content
-            .work__slider
-              .slider
-                .slider__wrap.work__slider-wrap
-                  ul.slider__list
-                    - var previews = ['work1', 'work2', 'work3', 'work4']
-                    each preview in previews
-                      li.slider__item(class = preview == 'work1' ? 'active' : '')
-                        button(type='button').slider__btn
-                          +image(`content/work/${preview}.jpg`, "slider__btn-img")
-                  .work__slider-buttons.slider__arrow
-                    button(type="button").slider__arrow-btn.slider__arrow-btn--prev
-                      +icon('arrow-down', 'slider__arrow-icon')
-                    button(type="button").slider__arrow-btn.slider__arrow-btn--next
-                      +icon('arrow-down', 'slider__arrow-icon')
-              .slider__card
-                .card
-                  ul.card__list
-                    -var techno = ['js', 'html', 'css']
-                    each item in techno
-                      li.card__item
-                        .card__item-tag=item
-                  h3.card__title Сайт школы образования
-                  .card__description Этот парень проходил обучение веб-разработке не где-то, а в LoftShool! 2 месяца только самых тяжелых испытаний и бессоных ночей!
-                  .card__btn
-                    a.card__btn-link(href='#') Посмотреть сайт
+      include template/components/work
       .main
         .triangles.triangles--rotate
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
@@ -65,30 +37,7 @@ html(lang="en")
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.arrow
             polygon(points="0,0 0,100 1000,100")
         include template/components/parallax-budda
-        section.review
-          .container
-            .review__row
-              h2.review__title.title Что обо мне говорят
-              .review__btn
-                button(type="button").slider__arrow-btn.slider__arrow-btn--prev
-                  +icon('arrow-down', 'slider__arrow-icon')
-                button(type="button").slider__arrow-btn.slider__arrow-btn--next
-                  +icon('arrow-down', 'slider__arrow-icon')
-            .review__slider
-              ul.review__slider-list
-                - for (var i = 0; i < 2; i++)
-                  li.review__slider-item
-                    .reviews
-                      .reviews__content
-                        .reviews__description
-                          p Этот парень проходил обучение веб-разработке не где-то, а в LoftShool! 4,5 месяца только самых тяжелыхиспытаний и бессоных ночей!
-                        .reviews__info
-                          .reviews__ava
-                            .avatar.reviews__avatar
-                              +image('content/user.jpg', 'avatar__img')
-                          .reviews__data
-                            .reviews__data-name Ковальчук Дмитрий
-                            .reviews__data-subtitle Основатель LoftShool                  
+        include template/components/reviews
         section.contacts(id="contacts")
           .container
             h2.contacts__title.title Связаться со мной
