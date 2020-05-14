@@ -2,36 +2,62 @@ section.review
   .container
     #reviews-component
 
-script(type="text/x-template" id='reviews-content')
+script(type="text/x-template")#reviews-content
   .review__container
-    row
-    sliders
-
-script(type="text/x-template")#reviews-row
-  .review__row
-    h2.review__title.title Что обо мне говорят
-    .review__btn
-      button(type="button" @click="previous" :disabled="true").slider__arrow-btn.slider__arrow-btn--prev
-        +icon('arrow-down', 'slider__arrow-icon')
-      button(type="button" @click="next" :disabled="false").slider__arrow-btn.slider__arrow-btn--next
-        +icon('arrow-down', 'slider__arrow-icon')
-
-script(type="text/x-template")#reviews-sliders
-  flickity(ref="flickity" :options="flickityOptions").review__slider
-      ul.review__slider-list
-        - for (var i = 0; i < 7; i++)
-          li.review__slider-item
-            slide
+    .review__row
+      h2.review__title.title Что обо мне говорят
+      .review__btn
+        button(@click="previous" :disabled="true").slider__arrow-btn.slider__arrow-btn--prev
+          +icon('arrow-down', 'slider__arrow-icon')
+        button(@click="next" :disabled="false").slider__arrow-btn.slider__arrow-btn--next
+          +icon('arrow-down', 'slider__arrow-icon')
+    flickity(ref="flickity" :options="flickityOptions").review__slider
+      .review__slider-item(v-for = "card in reviews" :key="card.id")
+        slide(
+          :cardList="card"
+        )
 
 script(type="text/x-template")#reviews-slide
-  .reviews
+  .rewievs
     .reviews__content
       .reviews__description
-        p Этот парень проходил обучение веб-разработке не где-то, а в LoftShool! 4,5 месяца только самых тяжелыхиспытаний и бессоных ночей!
+        p {{cardList.massege}}
       .reviews__info
         .reviews__ava
           .avatar.reviews__avatar
             +image('content/user.jpg', 'avatar__img')
         .reviews__data
-          .reviews__data-name Ковальчук Дмитрий
-          .reviews__data-subtitle Основатель LoftShool
+          .reviews__data-name(v-text="cardList.name")
+          .reviews__data-subtitle(v-text="cardList.rang")
+
+
+
+
+//- script(type="text/x-template")#reviews-row
+//-   .review__row
+//-     h2.review__title.title Что обо мне говорят
+//-     .review__btn
+//-       button(type="button" @click="previous" :disabled="true").slider__arrow-btn.slider__arrow-btn--prev
+//-         +icon('arrow-down', 'slider__arrow-icon')
+//-       button(type="button" @click="next" :disabled="false").slider__arrow-btn.slider__arrow-btn--next
+//-         +icon('arrow-down', 'slider__arrow-icon')
+
+//- script(type="text/x-template")#reviews-sliders
+//-   flickity(ref="flickity" :options="flickityOptions").review__slider
+//-       ul.review__slider-list
+//-         - for (var i = 0; i < 7; i++)
+//-           li.review__slider-item
+//-             slide
+
+//- script(type="text/x-template")#reviews-slide
+//-   .reviews
+//-     .reviews__content
+//-       .reviews__description
+//-         p Этот парень проходил обучение веб-разработке не где-то, а в LoftShool! 4,5 месяца только самых тяжелыхиспытаний и бессоных ночей!
+//-       .reviews__info
+//-         .reviews__ava
+//-           .avatar.reviews__avatar
+//-             +image('content/user.jpg', 'avatar__img')
+//-         .reviews__data
+//-           .reviews__data-name Ковальчук Дмитрий
+//-           .reviews__data-subtitle Основатель LoftShool

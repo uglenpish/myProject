@@ -14,11 +14,12 @@
 
 .review__slider{
   width: 64%;
+  
 
 	&-list {
 		width: 100%;
+    overflow: hidden;
   	display: flex;
-  	justify-content: space-between;
 
   	@include desktop{
   		width: 83%;
@@ -28,13 +29,19 @@
 
 .review__slider-item {
   width: 50%;
-  margin-right: 85px;
+  height: 270px;
+  padding-right: 55px;
+  
 
   @include desktop{
-  	margin-right: 35px;
+  	padding-right: 35px;
+  }
+
+  @include tablets{
+    padding-right: 0px;
   }
 
   &:last-child{
-  	margin-right: 0;
+  	padding-right: 0px;
   }
 }

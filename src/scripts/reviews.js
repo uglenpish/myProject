@@ -1,16 +1,42 @@
 import Vue from "vue";
 import Flickity from 'vue-flickity';
 
-const row = {
-	template: "#reviews-row",
+
+const slide = {
+	template: "#reviews-slide",
+	props: ["cardList"],
+};
+
+
+new Vue({
+	el: "#reviews-component",
+	template: "#reviews-content",
+	components: {slide, Flickity},
+
+	data() {
+		return {
+			reviews: [],
+			flickityOptions: {
+				initialIndex: 0,
+				prevNextButtons: false,
+				pageDots: false,
+				wrapAround: false,
+				groupCells: true,
+				freeScroll: false,
+				contain: true,
+			},
+		}
+	},
 	methods: {
 		next() {
 		  this.$refs.flickity.next();
-		  this.checkActiv()
+		  this.checkActiv();
+		  console.log(1);
 		},
 		previous() {
 		  this.$refs.flickity.previous();
-		  this.checkActiv()
+		  this.checkActiv();
+		  console.log(2);
 		},
 	
 		checkActiv() {
@@ -23,35 +49,18 @@ const row = {
 				this.$el.querySelector('.slider__arrow-btn--next').disabled = false;
 			}
 		}
-	}
-};
-
-const slide = {
-	template: "#reviews-slide",
-};
-
-const sliders = {
-	template: "#reviews-sliders",
-	components: {slide, Flickity},
-
-	data() {
-		return {
-			feedbackList: [],
-			flickityOptions: {
-				initialIndex: 0,
-				prevNextButtons: false,
-				pageDots: false,
-				wrapAround: false,
-				groupCells: true,
-				freeScroll: false,
-				contain: true,
-			},
-		}
 	},
-};
 
-new Vue({
-	el: "#reviews-component",
-	template: "#reviews-content",
-	components: {row, sliders},
+	makeRequireImg(array) {
+		return array.map(item => {
+			const requireImg = require(`../images/content/${item.avatar}`);
+			item.avatar = requireImg;
+			return item;
+		})
+	},
+
+	created() {
+		const data = require('../data/reviews.json');
+		this.rewiews = this.makeRequireImg(data);
+	}
 });

@@ -1,4 +1,4 @@
-const parall = document.querySelector('.parallax-budda');
+const parall = document.querySelector('.parallax__image');
 const layers = parall.children;
 
 function moveLayersOnScroll(wScroll) {
