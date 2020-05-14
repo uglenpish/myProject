@@ -12,23 +12,24 @@ script(type="text/x-template")#reviews-content
         button(@click="next" :disabled="false").slider__arrow-btn.slider__arrow-btn--next
           +icon('arrow-down', 'slider__arrow-icon')
     flickity(ref="flickity" :options="flickityOptions").review__slider
-      .review__slider-item(v-for = "card in reviews" :key="card.id")
-        slide(
-          :cardList="card"
-        )
+      - for (var i = 0; i < 7; i++)
+        .review__slider-item
+          slide(
+            :card="card"
+          )
 
 script(type="text/x-template")#reviews-slide
   .rewievs
     .reviews__content
       .reviews__description
-        p {{cardList.massege}}
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis voluptatem libero eaque assumenda fugit impedit.
       .reviews__info
         .reviews__ava
           .avatar.reviews__avatar
-            +image('content/user.jpg', 'avatar__img')
+            +image("content/user.jpg", 'avatar__img')
         .reviews__data
-          .reviews__data-name(v-text="cardList.name")
-          .reviews__data-subtitle(v-text="cardList.rang")
+          .reviews__data-name Филип
+          .reviews__data-subtitle Просто чувак
 
 
 

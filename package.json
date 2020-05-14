@@ -9,7 +9,7 @@
     "reg": "node reg-util.js"
   },
   "keywords": [],
-  "author": "Dmitry Sterlin <uglenpish@rambler.ru>",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -50,8 +50,6 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "dev": "^0.1.3",
-    "flickity": "^2.2.1",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
     "pug": "^2.0.3",

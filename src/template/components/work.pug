@@ -10,7 +10,8 @@ script(type="text/x-template")#slider-work
       :currentWork="currentWork"
       :currentIndex="currentIndex"
       :works="works"
-      @slide="handlerSlide"
+      @slide="changeSlide"
+      @goToSlide="goToSlide"
     )
     card(
       :currentWork="currentWork"
@@ -23,8 +24,11 @@ script(type="text/x-template")#slider-display
       thumbs(
         :works="reverseWorks"
         :currentWork="currentWork"
+        @slide="$emit('goToSlide', $event)"
       )
       btns(
+        :current-index="currentIndex"
+        :works-count="works.length"
         @slide="$emit('slide', $event)"
       )
 
@@ -40,9 +44,17 @@ script(type="text/x-template")#slider-thumbs
 
 script(type="text/x-template")#slider-btns
   .work__slider-buttons.slider__arrow
-    button(type="button" @click.prevent="$emit('slide', 'next')").slider__arrow-btn.slider__arrow-btn--prev
+    button(
+      type="button" 
+      @click.prevent="$emit('slide', 'next')"
+      :disabled="nextBtnDisable"
+    ).slider__arrow-btn.slider__arrow-btn--prev
       +icon('arrow-down', 'slider__arrow-icon')
-    button(type="button" @click.prevent="$emit('slide', 'prev')").slider__arrow-btn.slider__arrow-btn--next
+    button(
+      type="button" 
+      @click.prevent="$emit('slide', 'prev')"
+      :disabled="prevBtnDisable"
+    ).slider__arrow-btn.slider__arrow-btn--next
       +icon('arrow-down', 'slider__arrow-icon')
 
 script(type="text/x-template")#slider-card

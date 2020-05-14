@@ -4,7 +4,7 @@ import Flickity from 'vue-flickity';
 
 const slide = {
 	template: "#reviews-slide",
-	props: ["cardList"],
+	props: ["card"],
 };
 
 
@@ -48,19 +48,20 @@ new Vue({
 				this.$el.querySelector('.slider__arrow-btn--prev').disabled = false;
 				this.$el.querySelector('.slider__arrow-btn--next').disabled = false;
 			}
-		}
+		},
+
+		makeRequireImg(array) {
+			return array.map(item => {
+				const requireImg = require(`../images/content/${item.avatar}`);
+				item.avatar = requireImg;
+				return item;
+			})
+		},
 	},
 
-	makeRequireImg(array) {
-		return array.map(item => {
-			const requireImg = require(`../images/content/${item.avatar}`);
-			item.avatar = requireImg;
-			return item;
-		})
-	},
+	
 
 	created() {
 		const data = require('../data/reviews.json');
-		this.rewiews = this.makeRequireImg(data);
 	}
 });

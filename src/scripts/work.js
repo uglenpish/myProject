@@ -7,6 +7,18 @@ const thumbs={
 
 const btns={
 	template: "#slider-btns",
+	props: {
+    currentIndex: Number,
+    worksCount: Number
+  },
+	computed: {
+    prevBtnDisable () {
+      return this.currentIndex === 0
+    },
+    nextBtnDisable () {
+      return (this.currentIndex + 1) === this.worksCount
+    }
+  }
 };
 
 const display={
@@ -17,7 +29,11 @@ const display={
 		reverseWorks(){
 			const works = [...this.works];
 			return works.reverse();
-		}
+		},
+
+		currentImageIndex () {
+      return this.currentIndex + 1
+    }
 	}
 };
 
@@ -68,16 +84,16 @@ new Vue({
 			console.log(val);
 		},
 
-		handlerSlide(direct){
-			switch (direct) {
-				case "next":
-					this.currentIndex++;
-					break;
-				case "prev":
-					this.currentIndex--;
-					break;
-			}
-		},
+		// handlerSlide(direct){
+		// 	switch (direct) {
+		// 		case "next":
+		// 			this.currentIndex++;
+		// 			break;
+		// 		case "prev":
+		// 			this.currentIndex--;
+		// 			break;
+		// 	}
+		// },
 
 		makeArrWithRequireImg(array) {
 			return array.map(item=>{
@@ -85,11 +101,35 @@ new Vue({
 				item.photo = requirPic;
 				return item; 
 			})
-		}
+		},
+
+		changeSlide (direction) {
+
+	    if (direction === "next") {
+	      this.currentIndex++
+	      this.moveElement(this.currentIndex)
+	    } else {
+	      this.moveElement(this.currentIndex)
+	      this.currentIndex--
+	    }
+	  },
+
+    moveElement(index) {
+      const removed = this.works.splice(index, 1)
+      const zero = this.works.splice(0, 1)
+
+      this.works.splice(index-1, 0, zero[0])
+      this.works.splice(0, 0, removed[0])
+    },
+
+    goToSlide (slideId) {
+      this.currentIndex = slideId - 1
+      this.moveElement(this.works.findIndex(work => work.id === slideId))
+    }
 	},
 
 	created(){
 		const data = require("../data/work.json");
 		this.works = this.makeArrWithRequireImg(data);
-	}
+	},
 });
