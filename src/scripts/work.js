@@ -107,9 +107,9 @@ new Vue({
 
 	    if (direction === "next") {
 	      this.currentIndex++
-	      this.moveElement(this.currentIndex)
+	      // this.moveElement(this.currentIndex)
 	    } else {
-	      this.moveElement(this.currentIndex)
+	      // this.moveElement(this.currentIndex)
 	      this.currentIndex--
 	    }
 	  },
