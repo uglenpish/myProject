@@ -2,9 +2,10 @@ import Vue from "vue";
 import Flickity from 'vue-flickity';
 
 
+
 const slide = {
 	template: "#reviews-slide",
-	props: ["card"],
+	
 };
 
 

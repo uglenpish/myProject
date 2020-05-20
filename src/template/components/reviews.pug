@@ -14,9 +14,7 @@ script(type="text/x-template")#reviews-content
     flickity(ref="flickity" :options="flickityOptions").review__slider
       - for (var i = 0; i < 7; i++)
         .review__slider-item
-          slide(
-            :card="card"
-          )
+          slide
 
 script(type="text/x-template")#reviews-slide
   .rewievs

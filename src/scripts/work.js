@@ -2,7 +2,10 @@ import Vue from "vue";
 
 const thumbs={
 	template: "#slider-thumbs",
-	props: ["works", "currentWork"],
+	props: {
+		"works": Array,
+		"currentWork": Object
+	 },
 };
 
 const btns={
@@ -24,7 +27,11 @@ const btns={
 const display={
 	template: "#slider-display",
 	components: {thumbs, btns},
-	props: ["currentWork", "works", "currentIndex"],
+	props: {
+    works: Array,
+    currentWork: Object,
+    currentIndex: Number
+  },
 	computed: {
 		reverseWorks(){
 			const works = [...this.works];
@@ -66,33 +73,23 @@ new Vue({
 
 	computed: {
 		currentWork() {
-			return this.works[this.currentIndex];
+			// return this.works[this.currentIndex];
+			return this.works[0]
 		}
 	},
 
-	watch: {
-		currentIndex(val) {
-			this.makeInfiniteLoopIndex(val);
-		},
-	},
+	// watch: {
+	// 	currentIndex(val) {
+	// 		this.makeInfiniteLoopIndex(val);
+	// 	},
+	// },
 
 	methods: {
-		makeInfiniteLoopIndex(val){
-			const worksLenghtZero = this.works.length - 1;
-      if (val > worksLenghtZero) this.currentIndex = 0;
-      if (val < 0) this.currentIndex = worksLenghtZero;
-			console.log(val);
-		},
-
-		// handlerSlide(direct){
-		// 	switch (direct) {
-		// 		case "next":
-		// 			this.currentIndex++;
-		// 			break;
-		// 		case "prev":
-		// 			this.currentIndex--;
-		// 			break;
-		// 	}
+		// makeInfiniteLoopIndex(val){
+		// 	const worksLenghtZero = this.works.length - 1;
+  //     if (val > worksLenghtZero) this.currentIndex = 0;
+  //     if (val < 0) this.currentIndex = worksLenghtZero;
+		// 	console.log(val);
 		// },
 
 		makeArrWithRequireImg(array) {
@@ -107,9 +104,9 @@ new Vue({
 
 	    if (direction === "next") {
 	      this.currentIndex++
-	      // this.moveElement(this.currentIndex)
+	      this.moveElement(this.currentIndex)
 	    } else {
-	      // this.moveElement(this.currentIndex)
+	      this.moveElement(this.currentIndex)
 	      this.currentIndex--
 	    }
 	  },

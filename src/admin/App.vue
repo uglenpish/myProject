@@ -159,9 +159,9 @@
 							.comment__content
 								p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
 							.comment__btn-wrap
-									button.work__btn Править
+									button(type="button").work__btn Править
 										.edit-btn
-									button.work__btn Удалить
+									button(type="button").work__btn Удалить
 										.btn-false
 </template>
 
@@ -175,6 +175,10 @@
 /* body and section */
 	body {
 		background-color: #f8f9fe;
+	}
+
+	button[type="button"] {
+	  background-color: inherit;
 	}
 	.container-admin {
 		width: 100%;
