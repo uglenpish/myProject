@@ -1,5 +1,5 @@
 .overlay {
-	display: none;
+	display: block;
 	z-index: 10000;
 	position: fixed;
 	top: 0;
@@ -11,6 +11,13 @@
 	width: 100%;
 	min-height: 100vh;
 	background-color: rgba($text-color, .7);
+	opacity: 1;
+
+	&.disabled {
+    display: none;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
 
 	&__container {
 		width: 460px;
