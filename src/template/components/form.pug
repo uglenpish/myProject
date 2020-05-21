@@ -1,0 +1,64 @@
+section.contacts
+  .container
+    h2.contacts__title.title Связаться со мной
+    form.form#form(
+      name='connectForm'
+      @submit.prevent="submitForm"
+    )
+      .form__row
+        label.form__block(
+          :class="{error: !nameValid}"
+          v-bind:data-error-value="currentMassegeName"
+        )
+          .form__block-label Введите ваше имя
+          .form__block-wrap
+            +icon('user','form__block-icon')
+            .form__block-field
+              input(
+                placeholder="Иванов Иван"
+                type='text'
+                name='username'
+                required=""
+                autocomplete="off"
+                @input="validateName"
+              ).form__block-input#input-username
+        label.form__block(
+          :class="{error: !emailValid}"
+          v-bind:data-error-value="currentMassegeEmail"
+        )
+          .form__block-label Введите ваше email
+          .form__block-wrap
+            +icon('envelope','form__block-icon')
+            .form__block-field
+              input(
+                placeholder="example@mail.com"
+                type='email'
+                name='email'
+                required=""
+                autocomplete="off"
+                @input="validateEmail"
+              ).form__block-input#input-email
+      .form__row.form__row--more-margin
+        label.form__block(
+          :class="{error: !commentValid}"
+          v-bind:data-error-value="currentMassegeComment"
+        )
+          .form__block-label Сообщение к письму
+          .form__block-wrap.form__block-wrap--align-top
+            +icon('message','form__block-icon')
+            .form__block-field
+              textarea(placeholder="Требуется ваша помощь в создании сайта. \nИнтересуют сроки и цена вопроса" rows="3"
+              name='comment'
+              required=""
+              autocomplete="off"
+              @input="validateComment"
+            ).form__block-input.form__block-textarea
+      .form__row
+        .form__buttons
+          button(type="submit").custom-btn Отправить
+  .overlay
+    .overlay__container
+      .overlay__content
+        .overlay__title {{overlayMassege}}
+        .overlay__btn-wrap
+          .overlay__btn Закрыть

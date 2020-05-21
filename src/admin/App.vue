@@ -1139,7 +1139,7 @@
 		}
 		&__label {
 			display: block;
-			/* margin-right: 30px; */
+			width: 100%;
 		}
 		&__input {
 			display: block;

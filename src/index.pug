@@ -40,33 +40,7 @@ html(lang="en")
             polygon(points="0,0 0,100 1000,100")
         include template/components/parallax-budda
         include template/components/reviews
-        section.contacts(id="contacts")
-          .container
-            h2.contacts__title.title Связаться со мной
-            form.form
-              .form__row
-                label.form__block
-                  .form__block-label Введите ваше имя
-                  .form__block-wrap
-                    +icon('user','form__block-icon')
-                    .form__block-field
-                      input(placeholder="Иванов Иван").form__block-input
-                label.form__block
-                  .form__block-label Введите ваше email
-                  .form__block-wrap
-                    +icon('envelope','form__block-icon')
-                    .form__block-field
-                      input(placeholder="example@mail.com").form__block-input
-              .form__row.form__row--more-margin
-                label.form__block
-                  .form__block-label Сообщение к письму
-                  .form__block-wrap.form__block-wrap--align-top
-                    +icon('message','form__block-icon')
-                    .form__block-field
-                      textarea(placeholder="Требуется ваша помощь в создании сайта. \nИнтересуют сроки и цена вопроса" rows="3").form__block-input.form__block-textarea
-              .form__row
-                .form__buttons
-                  button(type="submit").custom-btn Отправить
+        include template/components/form
       include template/components/footer
       
 
