@@ -1,7 +1,7 @@
-section.contacts
+section.contacts#form
   .container
     h2.contacts__title.title Связаться со мной
-    form.form#form(
+    form.form(
       name='connectForm'
       @submit.prevent="submitForm"
     )
@@ -15,6 +15,7 @@ section.contacts
                 placeholder="Иванов Иван"
                 type='text'
                 name='username'
+                autocomplete="off"
                 @input="validateName"
                 onFocus = "this.placeholder=''"
               ).form__block-input#input-username
@@ -28,6 +29,7 @@ section.contacts
                 placeholder="example@mail.com"
                 type='email'
                 name='email'
+                autocomplete="off"
                 @input="validateEmail"
                 onFocus = "this.placeholder=''"
               ).form__block-input#input-email

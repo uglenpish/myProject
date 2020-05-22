@@ -32,12 +32,10 @@ new Vue({
 		next() {
 		  this.$refs.flickity.next();
 		  this.checkActiv();
-		  console.log(1);
 		},
 		previous() {
 		  this.$refs.flickity.previous();
 		  this.checkActiv();
-		  console.log(2);
 		},
 	
 		checkActiv() {
