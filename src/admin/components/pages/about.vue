@@ -7,25 +7,45 @@
 					.about__btn-wrap
 						.btn-plus 
 			.about__content
-				.group(v-for="group in ['Frontend','Backend']")
-					.group__title
-						input(placeholder="Название новой группы" :value="group" name="group-name").group__input.group__name-group
-						.group__btns-wrap
-							button(type="button" name="group-edit-btn").btn-true
-							button(type="button" name="group-delete-btn").btn-false
-					.group__skills
-						.skill(v-for="skill in [['Git', '30%'],['JavaScript', '20%'],['HTML5', '60%']]")
-							input(:disabled="false" :value="skill[0]" name="prof-name").skill__prof.skill__input
-							input(:disabled="false" :value="skill[1]" name="percent").skill__perc.skill__input
+				.about__content-list
+					.group.group_new
+						.group__title
+							input(placeholder="Название новой группы" :value="''" name="group-name").group__input.group__name-group
 							.group__btns-wrap
-								button(type="button" name="group-edit-btn").edit-btn
-								button(type="button" name="group-delete-btn").delete-btn
-					.group__skill-add
-						input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
-						input(placeholder="100 %" name="add-percent").group__skill-percent.group__input
-						button(type="button" name="group-add").group__btn
-							.group__btn-wrap
-								.btn-plus
+								button(type="button" name="group-edit-btn").btn-true.btn-true_active
+								button(type="button" name="group-delete-btn").btn-false.btn-false_active
+						.group__skills
+							.skill.skill_new
+								input(:disabled="false" :value="''" name="prof-name").skill__prof.skill__input
+								input(:disabled="false" :value="''" name="percent" type="number" min="0" max="100").skill__perc.skill__input
+								.group__btns-wrap
+									button(type="button" name="group-edit-btn").btn-true
+									button(type="button" name="group-delete-btn").btn-false
+						.group__skill-add
+							input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
+							input(placeholder="100%" name="add-percent" type="number" min="0" max="100").group__skill-percent.group__input
+							button(type="button" name="group-add" disabled="true").group__btn
+								.group__btn-wrap
+									.btn-plus
+					.group(v-for="group in ['Frontend','Backend']")
+						.group__title
+							input(placeholder="Название новой группы" :value="group" name="group-name").group__input.group__name-group
+							.group__btns-wrap
+								button(type="button" name="group-edit-btn").btn-true
+								button(type="button" name="group-delete-btn").btn-false
+						.group__skills
+							.skill(v-for="skill in [['Git', '30%'],['JavaScript', '20%'],['HTML5', '60%']]")
+								input(:disabled="false" :value="skill[0]" name="prof-name").skill__prof.skill__input
+								input(:disabled="false" :value="skill[1]" name="percent").skill__perc.skill__input
+								.group__btns-wrap
+									button(type="button" name="group-edit-btn").edit-btn
+									button(type="button" name="group-delete-btn").delete-btn
+						.group__skill-add
+							input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
+							input(placeholder="100 %" name="add-percent").group__skill-percent.group__input
+							button(type="button" name="group-add").group__btn
+								.group__btn-wrap
+									.btn-plus
 </template>
 
 <script>
@@ -36,50 +56,62 @@
 @import "../../../styles/mixins.pcss";
 @import "../../../styles/layout/base.pcss";
 /* about */
-	.about {
-			
-		&__btn {
-			display: flex;
-			flex-flow: row-reverse;
-			margin-left: 60px;
-			color: $links-color;
-			font-weight: 700;
-			@include phones {
-				font-size: 14Px;
-				margin: 20px 0 0 0;
-			}
-			&:hover .btn-plus {
-				background: linear-gradient( 90deg, rgb(0,106,237) 0%, rgb(32,80,220) 48%, rgb(63,53,203) 100%);
-			}
-			&-wrap {
-				width: 20px;
-				height: 20px;
-				margin-right: 15px;
-			}
+	
+.about {
+		
+	&__btn {
+		display: flex;
+		flex-flow: row-reverse;
+		margin-left: 60px;
+		color: $links-color;
+		font-weight: 700;
+		@include phones {
+			font-size: 14Px;
+			margin: 20px 0 0 0;
 		}
-		&__content {
-			display: flex;
-			justify-content: space-between;
-			margin-left: -30px;
-			@include tablets {
-				flex-direction: column;
-				align-items: center;
-				margin-left: 0 auto;
-			}
+		&:hover .btn-plus {
+			background: linear-gradient( 90deg, rgb(0,106,237) 0%, rgb(32,80,220) 48%, rgb(63,53,203) 100%);
+		}
+		&-wrap {
+			width: 20px;
+			height: 20px;
+			margin-right: 15px;
 		}
 	}
+	&__content {
+		width: 100%;
+		&-list {
+			margin-left: -30px;
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+
 /*  about group  */
 	.group {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		padding: 20Px;
-		max-width: 530Px;
+		width: calc(100% / 2 - 30px);
+		min-width: 300Px;
 		min-height: 390Px;
 		background-color: #fff;
 		box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.1);
 		margin-left: 30px;
 		margin-bottom: 30px;
+
+		@include tablets {
+			max-width: 530Px;
+			width: 100%;
+		}
+		@include phones {
+			max-width: 100%;
+			padding: 20Px 0;
+		}
+	
 		&__title {
 			display: flex;
 			align-items: center;

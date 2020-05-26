@@ -10,7 +10,7 @@
 					.user-photo
 						.user-photo__wrap
 							.user-photo__photo
-								img(src="../images/content/user.jpg").user-photo__img
+								img(src="../../../images/content/user.jpg").user-photo__img
 						button(type='button').user-photo__btn-add Добавить фото
 					.recall
 						.recall__row
