@@ -1,6 +1,5 @@
 <template lang="pug">
 	.wrapper
-		//- Login
 		Header
 		Navigator
 		main.content-container

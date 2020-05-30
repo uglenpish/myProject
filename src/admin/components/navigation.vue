@@ -2,12 +2,33 @@
 	nav.nav
 		.container-admin
 			ul.nav__list
-				li.nav__item(v-for="i in ['Обо мне', 'Работы', 'Отзывы']")
-					a.nav__link(href='#' v-text="i")
+				li.nav__item(v-for="(tab, ndx) in tabs")
+					router-link(
+					:to="tab.href"
+					).nav__link {{tab.title}}
 </template>
 
 <script>
-	
+	export default {
+	  data () {
+	    return {
+	      tabs: [
+	        {
+	          title: 'Обо мне',
+	          href: '/'
+	        },
+	        {
+	          title: 'Работы',
+	          href: '/works'
+	        },
+	        {
+	          title: 'Отзывы',
+	          href: '/reviews'
+	        }
+	      ]
+	    }
+	  }
+	}
 </script>
 
 <style lang="postcss">

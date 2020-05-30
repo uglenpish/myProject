@@ -1,22 +1,60 @@
 <template lang="pug">
-	section.login#section-login
-			.login__container
-				.login__content
-					.login__title Авторизация
-					form.login__form(name="login-form")
-						label.login__label
-							input(type="text" name="login-login" required="").login__input
-							.login__form-title Логин
-							.login__icon-wrap
-								.login__icon
-						label.login__label
-							input(type="password" name="login-password" required="").login__input
-							.login__form-title Пароль
-							.login__icon-wrap
-								.login__icon.login__icon-key
-						.login__btn-wrap
-							button(type="button" name="login-btn-login").login__btn-login Отправить
+section.login#section-login
+		.login__container
+			.login__content
+				.login__title Авторизация
+				form(
+      		@submit.prevent="login"
+    		).login__form
+					label.login__label
+						input(
+							type="text" 
+							name="login-login" 
+							required=""
+							v-model="user.name"
+						).login__input
+						.login__form-title Логин
+						.login__icon-wrap
+							.login__icon
+					label.login__label
+						input(
+							type="password" 
+							name="login-password" 
+							required=""
+							v-model="user.password"
+							).login__input
+						.login__form-title Пароль
+						.login__icon-wrap
+							.login__icon.login__icon-key
+					.login__btn-wrap
+						button(
+							type="submit"
+						).login__btn-login Отправить
 </template>
+
+<script>
+	import axios from '../../loginSettings';
+	// import { mapMutations } from 'vuex';
+	
+
+	export default {
+		data () {
+			return{
+				user: {
+					name: "",
+					password: "",
+				}
+			}
+		},
+		methods: {
+			login(){
+				axios.post("/login", this.user).then(response=>{
+          this.$router.replace('/')
+				})
+			}
+		}
+	}
+</script>
 
 <style lang="postcss">
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
@@ -26,9 +64,14 @@
 
 /* login */
 .login{
-	overflow-y: hidden;
-	position: relative;
-	width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+	/*overflow-y: hidden;*/
+	/*position: relative;*/
+	/*width: 100%;*/
 	height: 100vh;
 	background: url('../../../images/content/Mountain.jpg') center center / cover no-repeat;
 	display: flex;
@@ -117,14 +160,14 @@
 
     &:focus>.login__form-title, 
     &:valid>.login__form-title {
-      top: -40px;
+     	top: -40px;
       font-size: 16px;
       color: $main;
     }
 
-    &:focus:invalid~.login__form-title {
+    &:focus:valid~.login__form-title {
       top: -40px;
-      color: $text-color
+      color: $text-color;
     }
 
     &:focus {

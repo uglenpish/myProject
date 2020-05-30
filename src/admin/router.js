@@ -1,14 +1,16 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import vueRouter from 'vue-router';
 
-Vue.use(Router);
+
+Vue.use(vueRouter);
 
 import About from './components/pages/about.vue';
 import Works from './components/pages/works.vue';
-import Reviews from './components/pages/works.vue';
-import Login from "./components/pages/login"
+import Reviews from './components/pages/reviews.vue';
+import Login from "./components/pages/login";
 
-const routers = [
+
+const routes= [
 	{
 		path: '/',
 		component: About
@@ -18,7 +20,7 @@ const routers = [
 		component: Works
 	},
 	{
-		path: '/works',
+		path: '/reviews',
 		component: Reviews
 	},
 	{
@@ -27,4 +29,4 @@ const routers = [
 	},
 ];
 
-export default new Router({routers, mode: "history"});
+export default new vueRouter({routes});

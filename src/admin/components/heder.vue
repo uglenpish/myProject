@@ -8,11 +8,24 @@
 					.user__name Стерлин Дмитрий
 				.header__container 
 					.header__title Панель администратора
-					button(type='button').header__btn Выйти
+					button(
+						type='button'
+						@click.prevent="logout"
+						).header__btn Выйти
 </template>
 
 <script>
-	
+	import { mapActions } from 'vuex'
+	export default {
+	  methods: {
+	    ...mapActions('auth', ['logoutUser']),
+
+	    async logout() {
+	      await this.logoutUser()
+	      await this.$router.replace('/login')
+	    }
+	  }
+	}
 </script>
 
 <style lang="postcss">
