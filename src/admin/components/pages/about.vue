@@ -5,14 +5,16 @@
 				h2.section-title Блок «Обо мне»
 				button(
 					type="button" 
-					name="group-add-btn-new"
+					@click="showAddGroup = true"
 					).about__btn Добавить группу
 					.about__btn-wrap
 						.btn-plus 
 			.about__content
 				ul.about__content-list
-					li.about__content-item
-						skillGroup
+					li(v-if="showAddGroup").about__content-item
+						skillGroup(@hide="hideAddGroup")
+					//- li.about__content-item
+					//- 	skillGroup
 </template>
 
 <script>
@@ -21,6 +23,21 @@
 	export default{
 		components:{
 			skillGroup,
+		},
+
+		data () {
+	    return {
+	      category: {
+	        category: ''
+	      },
+	      showAddGroup: false
+	    }
+	  },
+
+	  methods: {
+	    hideAddGroup () {
+	      this.showAddGroup = false
+	    }
 		}
 	}	
 </script>
@@ -55,41 +72,17 @@
 		width: 100%;
 		&-list {
 			width: 100%;
+			display: flex;
+		}
+
+		&-item{
+			width: calc(100% / 2 - 30px);
+			margin-left: 30px;
+			margin-bottom: 30px;
 		}
 	}
 }
 	
-/* skill */
-	.skill {
-		display: flex;
-		justify-content: space-between;
-		/* width: 100%; */
-		margin-top: 10px;
-		&:first-child {
-			margin-top: 0;
-		}
-		&__prof {
-			width: 60%;
-		}
-		&__perc {
-			width: 75px;
-			text-align: center;
-		}
-		&__input {
-			display: block;
-			border: none;
-			outline: none;
-			background: transparent;
-			color: inherit;
-			font-weight: 600;
-			line-height: inherit;
-			border-bottom: 1px solid transparent;
-			font-size: 16px;
-			&:focus {
-				border-bottom: 1px solid $text-color;
-			}
-		}
-	}
 /* blue button plus  */
 	.btn-plus {
 		display: flex;
